@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Compressor Test</title>
+  <script src="https://cdn.jsdelivr.net/npm/compressorjs@1.2.1/dist/compressor.min.js"></script>
+</head>
+<body>
+
+<input type="file" id="fileInput" />
+<script>
+  document.getElementById('fileInput').addEventListener('change', function (e) {
+    const file = e.target.files[0];
+
+    new Compressor(file, {
+      quality: 0.6,
+      success(result) {
+        console.log('Compression successful:', result);
+        const url = URL.createObjectURL(result);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'compressed.jpg';
+        a.textContent = 'Download compressed image';
+        document.body.appendChild(a);
+      },
+      error(err) {
+        console.error('Compression error:', err.message);
+      },
+    });
+  });
+</script>
+
+</body>
+</html>
