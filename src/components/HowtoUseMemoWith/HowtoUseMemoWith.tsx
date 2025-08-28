@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
 type User = {
 	id: number;
@@ -6,7 +6,7 @@ type User = {
 	age: number;
 };
 
-export const HowtoUseMemo = () => {
+export const HowtoUseMemoWithout = () => {
 	const [users]: [User[], React.Dispatch<React.SetStateAction<User[]>>] =
 		useState([
 			{ id: 1, name: "Alice", age: 25 },
@@ -17,8 +17,8 @@ export const HowtoUseMemo = () => {
 	const [filter, setFilter] = useState("");
 	const [sortBy, setSortBy] = useState("name");
 
-	const processedUsers = (() => {
-		console.log(Math.random(), "Processing users...");
+	const processedUsers = useMemo(() => {
+		console.log(Math.random(), "WITH useMemo(): Processing users...");
 
 		let filteredUsers = users;
 		if (filter) {
@@ -32,7 +32,7 @@ export const HowtoUseMemo = () => {
 			if (a[sortBy as keyof User] > b[sortBy as keyof User]) return 1;
 			return 0;
 		});
-	})();
+	}, [users, filter, sortBy]);
 
 	return (
 		<div>
