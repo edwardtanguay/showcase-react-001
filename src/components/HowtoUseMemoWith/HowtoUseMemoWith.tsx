@@ -6,7 +6,7 @@ type User = {
 	age: number;
 };
 
-export const HowtoUseMemoWithout = () => {
+export const HowtoUseMemoWith = () => {
 	const [users]: [User[], React.Dispatch<React.SetStateAction<User[]>>] =
 		useState([
 			{ id: 1, name: "Alice", age: 25 },

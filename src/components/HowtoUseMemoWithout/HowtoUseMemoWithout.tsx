@@ -6,7 +6,7 @@ type User = {
 	age: number;
 };
 
-export const HowtoUseMemoWith = () => {
+export const HowtoUseMemoWithout = () => {
 	const [users]: [User[], React.Dispatch<React.SetStateAction<User[]>>] =
 		useState([
 			{ id: 1, name: "Alice", age: 25 },
@@ -16,6 +16,7 @@ export const HowtoUseMemoWith = () => {
 		]);
 	const [filter, setFilter] = useState("");
 	const [sortBy, setSortBy] = useState("name");
+	const [theme, setTheme] = useState("light");
 
 	const processedUsers = (() => {
 		console.log(Math.random(), "WITHOUT useMemo(): Processing users...");
@@ -36,6 +37,23 @@ export const HowtoUseMemoWith = () => {
 
 	return (
 		<div>
+			<div
+				className={`p-4 mb-4 w-[40rem] rounded ${
+					theme === "light"
+						? "bg-gray-200 text-black"
+						: "bg-gray-800 text-white"
+				} flex gap-3 items-center`}
+			>
+				<button
+					onClick={() =>
+						setTheme(theme === "light" ? "dark" : "light")
+					}
+				>
+					Toggle Theme
+				</button>
+				<div>Current Theme: {theme}</div>
+			</div>
+
 			<input
 				type="text"
 				className="mb-3"

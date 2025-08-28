@@ -2,7 +2,8 @@ import { HowtoForwardRef } from "./components/HowtoForwardRef/HowtoForwardRef";
 import { HowtoFunctionComponent } from "./components/HowtoFunctionComponent/HowtoFunctionComponent";
 import { HowtoIntersectionObserver } from "./components/HowtoIntersectionObserver/HowtoIntersectionObserver";
 import { HowtoNamedFunction } from "./components/HowtoNamedFunction/HowtoNamedFunction";
-import { HowtoUseMemoWithout } from "./components/HowtoUseMemoWith/HowtoUseMemoWith";
+import { HowtoUseMemoWith } from "./components/HowtoUseMemoWith/HowtoUseMemoWith";
+import { HowtoUseMemoWithout } from "./components/HowtoUseMemoWithout/HowtoUseMemoWithout";
 import { HowtoWrapper } from "./components/HowtoWrapper/HowtoWrapper";
 
 function App() {
@@ -42,7 +43,7 @@ function App() {
 				title="Searching with useMemo()"
 				description="caches the result of a calculation between re-renders and only recalculates it when its dependencies change, optimizing performance by avoiding unnecessary recalculations of expensive computations"
 			>
-				<HowtoUseMemoWithout />
+				<HowtoUseMemoWith />
 			</HowtoWrapper>
 
 			<div className="mb-[5rem]" />
