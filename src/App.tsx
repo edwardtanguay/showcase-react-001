@@ -35,13 +35,13 @@ function App() {
 			</HowtoWrapper>
 			<HowtoWrapper
 				title="Searching without useMemo()"
-				description="no caching, so the sorting logic runs on every render, which can lead to performance issues with large datasets or complex calculations"
+				description="when you change the theme, the filtering and sorting logic still runs on every render"
 			>
 				<HowtoUseMemoWithout />
 			</HowtoWrapper>
 			<HowtoWrapper
 				title="Searching with useMemo()"
-				description="caches the result of a calculation between re-renders and only recalculates it when its dependencies change, optimizing performance by avoiding unnecessary recalculations of expensive computations"
+				description="with useMemo(), changing the theme does not trigger re-sorting or re-filtering"
 			>
 				<HowtoUseMemoWith />
 			</HowtoWrapper>

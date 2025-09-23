@@ -16,6 +16,7 @@ export const HowtoUseMemoWith = () => {
 		]);
 	const [filter, setFilter] = useState("");
 	const [sortBy, setSortBy] = useState("name");
+	const [theme, setTheme] = useState("light");
 
 	const processedUsers = useMemo(() => {
 		console.log(Math.random(), "WITH useMemo(): Processing users...");
@@ -36,6 +37,22 @@ export const HowtoUseMemoWith = () => {
 
 	return (
 		<div>
+			<div
+				className={`p-4 mb-4 w-[40rem] rounded ${
+					theme === "light"
+						? "bg-gray-200 text-black"
+						: "bg-gray-800 text-white"
+				} flex gap-3 items-center`}
+			>
+				<button
+					onClick={() =>
+						setTheme(theme === "light" ? "dark" : "light")
+					}
+				>
+					Toggle Theme
+				</button>
+				<div>Current Theme: {theme}</div>
+			</div>
 			<input
 				type="text"
 				className="mb-3"
